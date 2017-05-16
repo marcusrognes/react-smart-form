@@ -1,7 +1,7 @@
 import React from 'react';
 import FormItem from '../FormItem';
 
-class TextField extends FormItem {
+class TextareaField extends FormItem {
 	render() {
 		let {label, defaultValue, id, name, className, ...other} = this.props;
 
@@ -11,7 +11,7 @@ class TextField extends FormItem {
 			<label htmlFor={id}>
 				{label}
 			</label>
-			<input
+			<textarea
 				id={id}
 				defaultValue={defaultValue}
 				name={name}
@@ -23,4 +23,4 @@ class TextField extends FormItem {
 	}
 }
 
-export default TextField;
+export default TextareaField;

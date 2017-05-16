@@ -94,7 +94,7 @@ class Form extends Component {
 	}
 
 	render() {
-		let {schema, className, formInterface} = this.props;
+		let {schema, className, elementClassName, formInterface} = this.props;
 
 		return <div className={className}>
 			<form onSubmit={(e) => {
@@ -108,20 +108,24 @@ class Form extends Component {
 						throw new Error('Missing type from schema element in Form render');
 					}
 
-					let elementClassName = '';
+					let currentElementClassName = '';
 
 					if (formInterface[element.type].className) {
-						elementClassName += formInterface[element.type].className + ' ';
+						currentElementClassName += formInterface[element.type].className + ' ';
 					}
 
 					if (schema[schemaKey].className) {
-						elementClassName += schema[schemaKey].className + ' ';
+						currentElementClassName += schema[schemaKey].className + ' ';
+					}
+
+					if (elementClassName) {
+						currentElementClassName += elementClassName + ' ';
 					}
 
 					let {elementType, ...elementOptions} = Object.assign({}, formInterface[element.type], schema[schemaKey], {
 						id: 'form-' + schemaKey + '-' + index,
 						name: schemaKey,
-						className: elementClassName,
+						className: currentElementClassName,
 						key: index
 					});
 
@@ -141,10 +145,8 @@ Form.defaultProps = {
 	className: 'form',
 	elementClassName: 'form__element',
 	onChange: (values, validMap, isValid) => {
-		console.log(values, validMap, isValid);
 	},
 	onSubmit: (values, validMap, isValid) => {
-		console.log(values, validMap, isValid);
 	},
 	onlySubmitOnValid: true,
 	onlyOnChangeOnValid: false
