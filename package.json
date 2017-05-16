@@ -12,6 +12,7 @@
     "@kadira/storybook": "^2.35.3"
   },
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "latest"
   }
 }
