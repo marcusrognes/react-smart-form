@@ -4,7 +4,7 @@ import './TextFieldStyle.scss';
 
 class TextField extends FormItem {
 	render() {
-		let {label, value, id, name, className, ...other} = this.props;
+		let {label, value, id, name, className} = this.props;
 
 		return <div
 			className={className + ' text-field'}

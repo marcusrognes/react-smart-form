@@ -4,7 +4,7 @@ import './SelectFieldStyle.scss';
 
 class SelectField extends FormItem {
 	render() {
-		let {label, value, id, name, className, options, ...other} = this.props;
+		let {label, value, id, name, className, options} = this.props;
 
 		return <div
 			className={className + ' select-field'}
