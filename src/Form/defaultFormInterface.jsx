@@ -8,6 +8,10 @@ const defaultFormInterface = {
 		elementType: TextField,
 		type: 'text'
 	},
+	password: {
+		elementType: TextField,
+		type: 'password'
+	},
 	email: {
 		elementType: TextField,
 		type: 'email',
