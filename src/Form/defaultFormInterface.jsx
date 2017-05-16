@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import TextField from "../Fields/TextField";
 
 const defaultFormInterface = {
 	text: {
-		elementType: div,
-
+		elementType: TextField,
+		type: 'text'
 	}
 };
 

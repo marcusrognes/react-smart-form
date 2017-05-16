@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class FormItem extends Component {
 	setValue(value) {
@@ -13,12 +14,12 @@ class FormItem extends Component {
 	}
 
 	render() {
-		return <div>
-			<h3>
-				FormItem
-			</h3>
-		</div>;
+		return <div/>;
 	}
 }
+
+FormItem.contextTypes = {
+	setValue: PropTypes.func
+};
 
 export default FormItem;

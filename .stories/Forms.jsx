@@ -3,7 +3,12 @@ import {storiesOf, action, linkTo} from '@kadira/storybook';
 import Form from "../src/Form/index";
 
 
-const schema = {};
+const schema = {
+	name: {
+		type: 'text',
+		isRequired: true
+	}
+};
 
 storiesOf('Forms', module)
 	.add('base', () => (
