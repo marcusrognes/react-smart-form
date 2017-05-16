@@ -1,5 +1,6 @@
 import React from 'react';
 import FormItem from '../FormItem';
+import './SelectFieldStyle.scss';
 
 class SelectField extends FormItem {
 	render() {

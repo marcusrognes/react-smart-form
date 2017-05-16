@@ -1,0 +1,14 @@
+@import "settings";
+
+.textarea-field {
+	&__label {
+		width: 100%;
+		margin-bottom: $label-margin;
+		display: block;
+	}
+	&__input {
+		width: 100%;
+		margin-bottom: $input-margin;
+		box-sizing: border-box;
+	}
+}

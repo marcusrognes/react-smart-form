@@ -1,5 +1,6 @@
 import React from 'react';
 import FormItem from '../FormItem';
+import './TextareaFieldStyle.scss';
 
 class TextareaField extends FormItem {
 	render() {
