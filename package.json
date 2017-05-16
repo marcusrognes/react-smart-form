@@ -1,20 +1,21 @@
 {
-  "name": "react-smart-form",
-  "version": "0.0.1",
-  "description": "Form Builder / Generator for react",
-  "scripts": {
-    "start": "start-storybook -p 6006",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Marcus Rognes <marcus@rognes.guru>",
-  "license": "ISC",
-  "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.5"
-  },
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "latest"
-  }
+	"name": "react-smart-form",
+	"version": "0.0.1",
+	"description": "Form Builder / Generator for react",
+	"main": "./src/index.js",
+	"scripts": {
+		"start": "start-storybook -p 6006",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Marcus Rognes <marcus@rognes.guru>",
+	"license": "ISC",
+	"devDependencies": {
+		"@kadira/storybook": "^2.35.3",
+		"node-sass": "^4.5.3",
+		"sass-loader": "^6.0.5"
+	},
+	"dependencies": {
+		"prop-types": "^15.5.10",
+		"react": "latest"
+	}
 }
