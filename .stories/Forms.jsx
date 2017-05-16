@@ -28,6 +28,19 @@ const schema = {
 		value: 0,
 		isRequired: true
 	},
+	select: {
+		type: 'select',
+		label: 'Select',
+		value: 'second',
+		options: {
+			first: 'First',
+			second: 'Second',
+			third: 'Third',
+			fourth: 'Fourth',
+			fifth: 'Fifth',
+		},
+		isRequired: true
+	},
 	description: {
 		type: 'textarea',
 		value: 'This is the description of test testerson,\nsome newline stuff',

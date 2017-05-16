@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TextField from "../Fields/TextField";
 import TextareaField from "../Fields/TextareaField";
+import SelectField from "../Fields/SelectField";
 
 const defaultFormInterface = {
 	text: {
@@ -22,6 +23,9 @@ const defaultFormInterface = {
 		validate: (name, value) => {
 			return !isNaN(parseFloat(value)) && isFinite(value);
 		}
+	},
+	select: {
+		elementType: SelectField,
 	},
 	textarea: {
 		elementType: TextareaField,
