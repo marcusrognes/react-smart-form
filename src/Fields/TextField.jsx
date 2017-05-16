@@ -4,7 +4,7 @@ import './TextFieldStyle.scss';
 
 class TextField extends FormItem {
 	render() {
-		let {label, value, id, name, className} = this.props;
+		let {label, value, id, name, type, className} = this.props;
 
 		return <div
 			className={className + ' text-field'}
@@ -20,6 +20,7 @@ class TextField extends FormItem {
 				className="text-field__input"
 				defaultValue={value}
 				name={name}
+				type={type}
 				onChange={(e) => {
 					this.setValue(e.target.value);
 				}}

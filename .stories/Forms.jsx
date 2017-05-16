@@ -22,6 +22,18 @@ const schema = {
 		value: 'test@testerson.com',
 		isRequired: true
 	},
+	date: {
+		type: 'date',
+		label: 'Date',
+		value: '',
+		isRequired: true
+	},
+	time: {
+		type: 'time',
+		label: 'Time',
+		value: '',
+		isRequired: true
+	},
 	number: {
 		type: 'number',
 		label: 'Number',
