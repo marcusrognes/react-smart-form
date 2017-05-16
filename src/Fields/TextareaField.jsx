@@ -3,17 +3,21 @@ import FormItem from '../FormItem';
 
 class TextareaField extends FormItem {
 	render() {
-		let {label, defaultValue, id, name, className, ...other} = this.props;
+		let {label, value, id, name, className, ...other} = this.props;
 
 		return <div
-			className={className}
+			className={className + ' textarea-field'}
 		>
-			<label htmlFor={id}>
+			<label
+				htmlFor={id}
+				className="textarea-field__label"
+			>
 				{label}
 			</label>
 			<textarea
 				id={id}
-				defaultValue={defaultValue}
+				className="textarea-field__input"
+				defaultValue={value}
 				name={name}
 				onChange={(e) => {
 					this.setValue(e.target.value);

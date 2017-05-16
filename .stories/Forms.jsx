@@ -7,15 +7,30 @@ const schema = {
 	name: {
 		type: 'text',
 		label: 'Name',
+		value: 'Test Testerson',
 		isRequired: true
 	},
 	niceName: {
 		type: 'text',
 		label: 'Nice name',
+		value: 'test-testerson',
 		isRequired: false
+	},
+	email: {
+		type: 'email',
+		label: 'Email',
+		value: 'test@testerson.com',
+		isRequired: true
+	},
+	number: {
+		type: 'number',
+		label: 'Number',
+		value: 0,
+		isRequired: true
 	},
 	description: {
 		type: 'textarea',
+		value: 'This is the description of test testerson,\nsome newline stuff',
 		label: 'Description',
 		isRequired: false
 	}
@@ -28,9 +43,10 @@ storiesOf('Forms', module)
 				Forms base
 			</h1>
 			<Form
-				onChange={(value, validMap, isValid) => {
-					console.log(value, validMap, isValid);
+				onSubmit={(value, validMap, isValid) => {
+					console.log('Is submit valid', isValid);
 				}}
+				onlySubmitOnValid={false}
 				schema={schema}
 			/>
 		</div>

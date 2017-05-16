@@ -6,9 +6,18 @@ class Form extends Component {
 	constructor(props) {
 		super(props);
 
+		let {schema} = props;
+		let values = {};
+		let validMap = {};
+
+		Object.keys(schema).forEach((schemaKey, index) => {
+			values[schemaKey] = schema[schemaKey].value;
+			validMap[schemaKey] = this.isValueValid(schemaKey, schema[schemaKey].value);
+		});
+
 		this.state = {
-			values: {}, // Key value store
-			validMap: {} // Key value store
+			values: values,
+			validMap: validMap
 		};
 	}
 
@@ -55,7 +64,7 @@ class Form extends Component {
 	}
 
 	isValueValid(name, value) {
-		let {schema} = this.props;
+		let {schema, formInterface} = this.props;
 
 		if (!schema[name]) {
 			return false;
@@ -75,6 +84,10 @@ class Form extends Component {
 			}
 		}
 
+		if (formInterface[schema[name].type].validate) {
+			return formInterface[schema[name].type].validate(name, value);
+		}
+
 		if (schema[name].validate) {
 			return schema[name].validate(name, value);
 		}
@@ -88,13 +101,15 @@ class Form extends Component {
 
 		let isFullyValid = this.isFullyValid();
 
-		if (isFullyValid && onlySubmitOnValid) {
-			onSubmit(values, validMap, isFullyValid);
+		if (!isFullyValid && onlySubmitOnValid) {
+			return;
 		}
+
+		onSubmit(values, validMap, isFullyValid);
 	}
 
 	render() {
-		let {schema, className, elementClassName, formInterface} = this.props;
+		let {schema, className, elementClassName, formInterface, displaySubmitButton, submitButtonLabel} = this.props;
 
 		return <div className={className}>
 			<form onSubmit={(e) => {
@@ -134,6 +149,10 @@ class Form extends Component {
 						elementOptions
 					);
 				})}
+				{displaySubmitButton && <input
+					type="submit"
+					value={submitButtonLabel}
+				/>}
 			</form>
 		</div>;
 	}
@@ -141,6 +160,8 @@ class Form extends Component {
 
 Form.defaultProps = {
 	schema: {},
+	displaySubmitButton: true,
+	submitButtonLabel: 'Submit',
 	formInterface: defaultFormInterface,
 	className: 'form',
 	elementClassName: 'form__element',
